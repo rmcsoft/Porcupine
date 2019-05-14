@@ -25,13 +25,13 @@
 using namespace std;
 
 // Change these to match your environment!
-const char MODEL_PATH[] = "../../lib/common/porcupine_params.pv";
-const char KEYWORD_PATH[] = "../../resources/keyword_files/pineapple_linux.ppn";
+const char MODEL_PATH[] = "porcupine_params.pv";
+const char KEYWORD_PATH[] = "kws/bumblebee_raspberrypi.ppn";
 float sensitivity = 0.5f;
 
 static pv_porcupine_object_t *porcupineObject;
 
-const char snd_device[] = "default";
+const char snd_device[] = "hw:0";
 
 snd_pcm_t* capture_handle;
 snd_pcm_hw_params_t* hw_params;
@@ -114,7 +114,7 @@ int init_soundcard()
 		return ERROR;
 	}
 
-	snd_pcm_hw_params_free(hw_params);
+ 	//snd_pcm_hw_params_free(hw_params);
 
 	return 0;
 }
